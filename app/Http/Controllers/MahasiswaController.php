@@ -6,7 +6,8 @@ use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Kelas;
-
+use App\Models\Matakuliah;
+use App\Models\Mahasiswa_MataKuliah;
 class MahasiswaController extends Controller
 {
     /**
@@ -114,6 +115,12 @@ class MahasiswaController extends Controller
         return view('mahasiswa.edit', compact('mahasiswa','kelas'));
     }
 
+    public function Mahasiswa_MataKuliah($Nim)
+    {
+        $mahasiswa = Mahasiswa_MataKuliah::with('matakuliah')->where('mahasiswa_id', $Nim)->get();
+        $mahasiswa->mahasiswa = Mahasiswa::with('kelas')->where('id_mahasiswa', $Nim)->first();
+        return view('mahasiswa.nilai', ['mahasiswa' => $mahasiswa]);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -163,6 +170,7 @@ class MahasiswaController extends Controller
         ->with('success', 'Mahasiswa Berhasil Diupdate');
     }
 
+   
     /**
      * Remove the specified resource from storage.
      *

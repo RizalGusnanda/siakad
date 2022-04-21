@@ -8,7 +8,8 @@
             <h3><strong>KARTU HASIL STUDI (KHS)</strong></h3>
         </div>
 
-        
+      
+       <a class="btn btn-success float-right" href="{{route('cetak_pdf', $mahasiswa->first())}}"> Cetak KHS</a>
         <b>Nama:</b> {{ $mahasiswa->mahasiswa->nama }}<br>
         <b>NIM: </b>{{ $mahasiswa->mahasiswa->nim }}<br>
         <b>Kelas: </b> {{ $mahasiswa->mahasiswa->kelas->nama_kelas }}<br><br>

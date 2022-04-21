@@ -20,28 +20,33 @@
                     </ul>
                 </div>
                 @endif
-                <form method="post" action="{{ route('mahasiswa.update', $mahasiswa->nim) }}" id="myForm">
+                <form method="post" action="{{ route('mahasiswa.update', $mahasiswa->nim) }}" enctype="multipart/form-data" id="myForm">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label for="Nim">Nim</label>
-                        <input type="text" name="Nim" class="form-control" id="Nim" value="{{ $mahasiswa->nim }}" aria-describedby="Nim">
+                        <label for="nim">Nim</label>
+                        <input type="text" name="nim" class="form-control" id="nim" value="{{ $mahasiswa->nim }}" aria-describedby="nim">
                     </div>
                     <div class="form-group">
-                        <label for="Nama">Nama</label>
-                        <input type="text" name="Nama" class="form-control" id="Nama" value="{{ $mahasiswa->nama }}" aria-describedby="Nama">
+                        <label for="nama">Nama</label>
+                        <input type="text" name="nama" class="form-control" id="nama" value="{{ $mahasiswa->nama }}" aria-describedby="nama">
                     </div>
                     <div class="form-group">
-                        <label for="Kelas">Kelas</label>
-                        <select name="Kelas" class="form-control">
+                        <label for="kelas">Kelas</label>
+                        <select name="kelas" class="form-control">
                             @foreach ($kelas as $kls)
                             <option value="{{$kls->id}}" {{ $mahasiswa->kelas_id == $kls->id ? 'selected' : '' }}>{{$kls->nama_kelas}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="Jurusan">Jurusan</label>
-                        <input type="Jurusan" name="Jurusan" class="form-control" id="Jurusan" value="{{ $mahasiswa->jurusan }}" aria-describedby="Jurusan">
+                        <label for="jurusan">Jurusan</label>
+                        <input type="jurusan" name="jurusan" class="form-control" id="jurusan" value="{{ $mahasiswa->jurusan }}" aria-describedby="jurusan">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Foto</label> 
+                        <input type="file" name="image" class="form-control" id="image" value="{{ $mahasiswa->image }}" aria-describedby="image" >
+                        <img style="width:100%" src="{{ asset('storage/'. $mahasiswa->image) }}" alt="">
                     </div>
                     <!-- <div class="form-group">
                         <label for="Jenis_Kelamin">Jenis Kelamin</label>

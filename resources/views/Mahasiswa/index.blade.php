@@ -37,6 +37,7 @@
         <th>Nama</th>
         <th>Kelas</th>
         <th>Jurusan</th>
+         <th>Foto</th>
         <!-- <th>Jenis Kelamin</th>
         <th>Email</th>
         <th>Alamat</th>
@@ -46,10 +47,11 @@
     @foreach ($paginate as $mhs)
     <tr>
 
-        <td>{{ $mhs ->nim }}</td>
-        <td>{{ $mhs ->nama }}</td>
-        <td>{{ $mhs ->kelas->nama_kelas }}</td>
-        <td>{{ $mhs ->jurusan }}</td>
+        <td>{{ $mhs->nim }}</td>
+        <td>{{ $mhs->nama }}</td>
+        <td>{{ $mhs->kelas->nama_kelas }}</td>
+        <td>{{ $mhs->jurusan }}</td>
+        <td><img style="width: 50px; overflow: hidden" class="" src="{{ asset('storage/' . $mhs->image) }}" alt=""></td>
         <!-- <td>{{ $mhs ->jenis_kelamin }}</td>
         <td>{{ $mhs ->email }}</td>
         <td>{{ $mhs ->alamat }}</td>

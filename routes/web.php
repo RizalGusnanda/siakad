@@ -20,4 +20,7 @@ use Illuminate\Http\Request;
 //     return view('welcome');
 // });
 Route::resource('mahasiswa', MahasiswaController::class);
-Route::get('mahasiswa/nilai/{mahasiswa}', [MahasiswaController::class, 'Mahasiswa_MataKuliah'])->name('mahasiswa.nilai');
+Route::get('/mahasiswa/nilai/{mahasiswa}', [MahasiswaController::class, 'Mahasiswa_MataKuliah'])->name('mahasiswa.nilai');
+Route::get('/nilai', [MahasiswaController::class, 'nilai'])->name('nilai');
+// Route::get('/nilai/cetak/{nim}', [MahasiswaController::class, 'cetak'])->name('cetak');
+Route::get('nilai/cetak_pdf/{nim}', [MahasiswaController::class, 'cetak_pdf'])->name('cetak_pdf');

@@ -20,28 +20,36 @@
                     </ul>
                 </div>
                 @endif
-                <form method="post" action="{{ route('mahasiswa.store') }}" id="myForm">
+                <form method="post" action="{{ route('mahasiswa.store') }}" id="myForm" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="Nim">Nim</label>
-                        <input type="text" name="Nim" class="form-control" id="Nim" aria-describedby="Nim">
+                        <label for="nim">Nim</label>
+                        <input type="text" name="nim" class="form-control" id="nim" aria-describedby="nim">
                     </div>
                     <div class="form-group">
-                        <label for="Nama">Nama</label>
-                        <input type="Nama" name="Nama" class="form-control" id="Nama" aria-describedby="Nama">
+                        <label for="nama">Nama</label>
+                        <input type="nama" name="nama" class="form-control" id="nama" aria-describedby="nama">
                     </div>
                     <div class="form-group">
-                        <label for="Kelas">Kelas</label>
-                        <select class="form-control" name='Kelas'>
+                        <label for="kelas">Kelas</label>
+                        <select class="form-control" name='kelas'>
                         @foreach ($kelas as $kls)
                         <option value="{{$kls->id}}">{{$kls->nama_kelas}}</option>
                         @endforeach
                     </select>
                     </div>
                     <div class="form-group">
-                        <label for="Jurusan">Jurusan</label>
-                        <input type="Jurusan" name="Jurusan" class="form-control" id="Jurusan"aria-describedby="Jurusan">
+                        <label for="jurusan">Jurusan</label>
+                        <input type="jurusan" name="jurusan" class="form-control" id="jurusan"aria-describedby="jurusan">
                     </div>
+                    <div class="form-group">
+                        <label for="image">Foto </label>         
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="Foto">Jurusan</label> 
+                        <input type="file" name="Foto" class="form-control" id="Foto" aria-describedby="Foto" > 
+                    </div> -->
                     <!-- <div class="form-group">
                         <label for="Jenis_Kelamin">Jenis Kelamin</label>
                         <input type="Jenis_Kelamin" name="Jenis_Kelamin" class="form-control" id="Jenis_Kelamin"aria-describedby="Jenis_Kelamin">
